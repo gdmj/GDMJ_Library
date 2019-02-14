@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace GDMJ_Library
 {
-    public class Class1
+    class Const
     {
+        public const string LibraryName = "GDMJ_Library";
+        public const string LibraryVersion = "0.0.1";
     }
 }
