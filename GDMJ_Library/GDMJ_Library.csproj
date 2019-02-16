@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Class\Const.cs" />
     <Compile Include="Class\Debug.cs" />
+    <Compile Include="Class\LogBox.cs" />
     <Compile Include="DebugForm.cs">
       <SubType>Form</SubType>
     </Compile>
