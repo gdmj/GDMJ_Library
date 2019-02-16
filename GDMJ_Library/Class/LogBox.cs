@@ -9,16 +9,32 @@ namespace GDMJ_Library.Class
 {
     class LogBox
     {
-        private ListBox LBox;
+        private DebugForm DForm = new DebugForm();
+        private Debug Debug = new Debug();
 
-        public LogBox(ListBox _LBox)
+        private void ListBoxAdd(string Text)
         {
-            LBox = _LBox;
+            DForm.ListBoxLog.Items.Add(Text);
         }
 
-        public void Log(String _Text)
+        public LogBox()
         {
-            LBox.Items.Add(_Text);
+            ListBoxAdd(Debug.showinfo());
+        }
+
+        public void Show()
+        {
+            DForm.Show();
+        }
+
+        public void Hide()
+        {
+            DForm.Hide();
+        }
+
+        public void Log(string Text)
+        {
+            ListBoxAdd(Text);
         }
     }
 }

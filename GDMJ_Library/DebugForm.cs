@@ -16,5 +16,17 @@ namespace GDMJ_Library
         {
             InitializeComponent();
         }
+
+        private DebugForm DForm = new DebugForm();
+
+        private void информацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListBoxLog.Items.Add(Const.LibraryName + Const.LibraryVersion + " loaded.");
+        }
+
+        private void DebugForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DForm.Hide();
+        }
     }
 }
