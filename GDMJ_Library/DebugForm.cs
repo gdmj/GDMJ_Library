@@ -12,12 +12,14 @@ namespace GDMJ_Library
 {
     public partial class DebugForm : Form
     {
+        
+
         public DebugForm()
         {
             InitializeComponent();
         }
 
-        private DebugForm DForm = new DebugForm();
+        private Form Form = new Form();
 
         private void информацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -26,7 +28,7 @@ namespace GDMJ_Library
 
         private void DebugForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DForm.Hide();
+            Form.Hide();
         }
     }
 }

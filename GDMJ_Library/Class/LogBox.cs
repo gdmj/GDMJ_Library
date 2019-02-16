@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GDMJ_Library.Class
+namespace GDMJ_Library
 {
-    class LogBox
+    public class LogBox
     {
         private DebugForm DForm = new DebugForm();
         private Debug Debug = new Debug();
@@ -29,7 +29,7 @@ namespace GDMJ_Library.Class
 
         public void Hide()
         {
-            DForm.Hide();
+            DForm.Close();
         }
 
         public void Log(string Text)

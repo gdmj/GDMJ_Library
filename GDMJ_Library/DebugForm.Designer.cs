@@ -1,6 +1,6 @@
 ﻿namespace GDMJ_Library
 {
-    partial class DebugForm
+    public partial class DebugForm
     {
         /// <summary>
         /// Required designer variable.
