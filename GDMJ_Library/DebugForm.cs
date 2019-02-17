@@ -26,9 +26,9 @@ namespace GDMJ_Library
             ListBoxLog.Items.Add(Const.LibraryName + Const.LibraryVersion + " loaded.");
         }
 
-        private void DebugForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
-            Form.Hide();
+            this.Hide();
         }
     }
 }
