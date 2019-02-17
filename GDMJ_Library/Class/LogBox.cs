@@ -37,8 +37,41 @@ namespace GDMJ_Library
 
         public void Log(string Text)
         {
-            ListBoxAdd(Text);
+            DateTime DateTimeNow = DateTime.Now;
+            ListBoxAdd(DateTimeNow + " =================> " + Text);
         }
+
+        public void Log(string Text, string Mode)
+        {
+            DateTime DateTimeNow = DateTime.Now;
+            string Prefix = null;
+            switch (Mode)
+            {
+                case "Works":      Prefix = "[Works]      " + DateTimeNow + " ===> "; break;
+                case "Warning":    Prefix = "[Warning]    " + DateTimeNow + " ===> "; break;
+                case "Error":      Prefix = "[Error]      " + DateTimeNow + " ===> "; break;
+                case "FatalError": Prefix = "[FatalError] " + DateTimeNow + " ===> "; break;
+            }
+
+            ListBoxAdd(Prefix + Text);
+        }
+
+        public void Log(string Text, int Mode)
+        {
+            DateTime DateTimeNow = DateTime.Now;
+            string Prefix = null;
+            switch (Mode)
+            {
+                case 0: Prefix = "[Works]      " + DateTimeNow + " ===> "; break;
+                case 1: Prefix = "[Warning]    " + DateTimeNow + " ===> "; break;
+                case 2: Prefix = "[Error]      " + DateTimeNow + " ===> "; break;
+                case 3: Prefix = "[FatalError] " + DateTimeNow + " ===> "; break;
+            }
+
+            ListBoxAdd(Prefix + Text);
+        }
+
+
 
         public void HotKeyShow(KeyEventArgs e)
         {
@@ -95,10 +128,18 @@ namespace GDMJ_Library
                 this.Show();
                 letter = 0;
             }
-            if (clicks == 9 & clicks > letter)
+            if (clicks == 9 || clicks > letter)
             {
-                letter = 0;
-                clicks = 0;
+                if (e.KeyCode != Keys.D)
+                {
+                    letter = 0;
+                    clicks = 0;
+                }
+                else
+                {
+                    letter = 1;
+                    clicks = 1;
+                }
             }
         }
     }

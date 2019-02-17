@@ -22,13 +22,32 @@ namespace LibraryChecker
 
         private void button1_Click(object sender, EventArgs e)
         {
+            LogBox.Log("Тупые логи");
+            int tost = 228;
+            LogBox.Log(tost.ToString());
+            LogBox.Log("Всё работает", "Works");
+            LogBox.Log("Вроде норм", 2);
 
+            LogBox.Log("Test", "Works");
+            LogBox.Log("Test", "Warning");
+            LogBox.Log("Test", "Error");
+            LogBox.Log("Test", "FatalError");
+
+            LogBox.Log("Test", 0);
+            LogBox.Log("Test", 1);
+            LogBox.Log("Test", 2);
+            LogBox.Log("Test", 3);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             
             LogBox.HotKeyShow(e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LogBox.Show();
         }
     }
 }

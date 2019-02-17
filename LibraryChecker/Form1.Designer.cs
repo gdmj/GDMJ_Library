@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.BClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -41,11 +42,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // BClose
+            // 
+            this.BClose.Location = new System.Drawing.Point(285, 290);
+            this.BClose.Name = "BClose";
+            this.BClose.Size = new System.Drawing.Size(75, 23);
+            this.BClose.TabIndex = 1;
+            this.BClose.Text = "Close";
+            this.BClose.UseVisualStyleBackColor = true;
+            this.BClose.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 325);
+            this.Controls.Add(this.BClose);
             this.Controls.Add(this.button1);
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -58,6 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BClose;
     }
 }
 
