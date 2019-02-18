@@ -45,6 +45,7 @@
     <Compile Include="Class\Const.cs" />
     <Compile Include="Class\Debug.cs" />
     <Compile Include="Class\LogBox.cs" />
+    <Compile Include="Class\Tools.cs" />
     <Compile Include="Class\XmlEditor.cs" />
     <Compile Include="Class\OneFirstRun.cs" />
     <Compile Include="DebugForm.cs">

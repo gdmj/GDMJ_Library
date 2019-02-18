@@ -25,7 +25,7 @@ namespace GDMJ_Library
 
         private void информацияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ListBoxLog.Items.Add(Const.LibraryName + Const.LibraryVersion + " loaded.");
+            ListBoxLog.Items.Add(Const.LibraryName + " " + Const.LibraryVersion + " loaded.");
         }
 
         private void Close_Click(object sender, EventArgs e)

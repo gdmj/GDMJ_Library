@@ -17,7 +17,7 @@ namespace GDMJ_Library
 
         private void ListBoxAdd(string Text)
         {
-            DForm.ListBoxLog.Items.Add(Text);
+            DForm.ListBoxLog.Items.Insert(0, Text);
         }
 
         public LogBox()
@@ -38,7 +38,7 @@ namespace GDMJ_Library
         public void Log(string Text)
         {
             DateTime DateTimeNow = DateTime.Now;
-            ListBoxAdd(DateTimeNow + " =================> " + Text);
+            ListBoxAdd("             " + DateTimeNow.ToLongTimeString() + " ===> " + Text);
         }
 
         public void Log(string Text, string Mode)
@@ -47,10 +47,10 @@ namespace GDMJ_Library
             string Prefix = null;
             switch (Mode)
             {
-                case "Works":      Prefix = "[Works]      " + DateTimeNow + " ===> "; break;
-                case "Warning":    Prefix = "[Warning]    " + DateTimeNow + " ===> "; break;
-                case "Error":      Prefix = "[Error]      " + DateTimeNow + " ===> "; break;
-                case "FatalError": Prefix = "[FatalError] " + DateTimeNow + " ===> "; break;
+                case "Works":      Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case "Warning":    Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case "Error":      Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case "FatalError": Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
             }
 
             ListBoxAdd(Prefix + Text);
@@ -62,10 +62,10 @@ namespace GDMJ_Library
             string Prefix = null;
             switch (Mode)
             {
-                case 0: Prefix = "[Works]      " + DateTimeNow + " ===> "; break;
-                case 1: Prefix = "[Warning]    " + DateTimeNow + " ===> "; break;
-                case 2: Prefix = "[Error]      " + DateTimeNow + " ===> "; break;
-                case 3: Prefix = "[FatalError] " + DateTimeNow + " ===> "; break;
+                case 0: Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case 1: Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case 2: Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                case 3: Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
             }
 
             ListBoxAdd(Prefix + Text);

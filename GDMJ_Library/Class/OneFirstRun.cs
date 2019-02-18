@@ -5,25 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace GDMJ_Library.Class
+namespace GDMJ_Library
 {
-    class OneFirstRun
+    public class OneFirstRun
     {
-        public void Run()
+        /// <summary>
+        /// Воврощает True если программа запущина в первый раз
+        /// </summary>
+        /// <returns>Воврощает True если программа запущина в первый раз</returns>
+        public bool Run()
         {
-            if (File.Exists("Not_delete"))
+            if (!File.Exists("Not_delete"))
             {
                 File.Create("Not_delete");
-
-                try
-                {
-
-                }
-                catch
-                {
-
-                }
+                return true;
             }
+            return false;
         }
     }
 }

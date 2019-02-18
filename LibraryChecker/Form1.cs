@@ -8,16 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GDMJ_Library;
+using GDMJ_Library.Class;
 
 namespace LibraryChecker
 {
     public partial class Form1 : Form
     {
         LogBox LogBox = new LogBox();
+        OneFirstRun OneFirstRun = new OneFirstRun();
+        Tools.HotKey HotKey = new Tools.HotKey("TEST");
+        Tools.HotKey Debug = new Tools.HotKey("DEBUGGDMJ");
+
+        bool Test;
 
         public Form1()
         {
             InitializeComponent();
+            
+            if (OneFirstRun.Run() == true)
+            {
+                LogBox.Log("FirstRun Started");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,13 +52,31 @@ namespace LibraryChecker
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            
-            LogBox.HotKeyShow(e);
+            LogBox.Log(Convert.ToString(e.KeyCode));
+
+            //LogBox.HotKeyShow(e);
+
+            Test = HotKey.Check(e);
+
+            if (Test == true)
+            {
+                LogBox.Log("HotKey work", 0);
+            }
+
+            if (Debug.Check(e) == true)
+            {
+                LogBox.Show();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             LogBox.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
