@@ -45,6 +45,7 @@
     <Compile Include="Class\Const.cs" />
     <Compile Include="Class\Debug.cs" />
     <Compile Include="Class\LogBox.cs" />
+    <Compile Include="Class\XmlEditor.cs" />
     <Compile Include="Class\OneFirstRun.cs" />
     <Compile Include="DebugForm.cs">
       <SubType>Form</SubType>
@@ -58,6 +59,9 @@
     <EmbeddedResource Include="DebugForm.resx">
       <DependentUpon>DebugForm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XMLFile1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
