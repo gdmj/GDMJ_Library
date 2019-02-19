@@ -15,6 +15,14 @@ namespace GDMJ_Library
         int letter = 0;
         int clicks = 0;
 
+        public enum Mode
+        {
+            Works,
+            Warning,
+            Error,
+            FatalError
+        }
+
         private void ListBoxAdd(string Text)
         {
             DForm.ListBoxLog.Items.Insert(0, Text);
@@ -35,43 +43,73 @@ namespace GDMJ_Library
             DForm.Hide();
         }
 
-        public void Log(string Text)
+        public class Log
         {
-            DateTime DateTimeNow = DateTime.Now;
-            ListBoxAdd("             " + DateTimeNow.ToLongTimeString() + " ===> " + Text);
-        }
+            LogBox LogBox = new LogBox();
 
-        public void Log(string Text, string Mode)
-        {
-            DateTime DateTimeNow = DateTime.Now;
-            string Prefix = null;
-            switch (Mode)
+            public Log()
             {
-                case "Works":      Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case "Warning":    Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case "Error":      Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case "FatalError": Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+
             }
 
-            ListBoxAdd(Prefix + Text);
-        }
-
-        public void Log(string Text, int Mode)
-        {
-            DateTime DateTimeNow = DateTime.Now;
-            string Prefix = null;
-            switch (Mode)
+            public void New(string Text)
             {
-                case 0: Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case 1: Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case 2: Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
-                case 3: Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                DateTime DateTimeNow = DateTime.Now;
+                LogBox.ListBoxAdd("             " + DateTimeNow.ToLongTimeString() + " ===> " + Text);
             }
 
-            ListBoxAdd(Prefix + Text);
+            public void New(string Text, string Mode)
+            {
+                DateTime DateTimeNow = DateTime.Now;
+                string Prefix = null;
+                switch (Mode)
+                {
+                    case "Works": Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case "Warning": Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case "Error": Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case "FatalError": Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                }
+
+                LogBox.ListBoxAdd(Prefix + Text);
+            }
+
+            public void New(string Text, int Mode)
+            {
+                DateTime DateTimeNow = DateTime.Now;
+                string Prefix = null;
+                switch (Mode)
+                {
+                    case 0: Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case 1: Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case 2: Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case 3: Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                }
+
+                LogBox.ListBoxAdd(Prefix + Text);
+            }
+
+            public void New(string Text, LogBox.Mode Mode)
+            {
+                DateTime DateTimeNow = DateTime.Now;
+                string Prefix = null;
+                switch (Mode)
+                {
+                    case Mode.Works: Prefix = "[Works]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case Mode.Warning: Prefix = "[Warning]    " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case Mode.Error: Prefix = "[Error]      " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                    case Mode.FatalError: Prefix = "[FatalError] " + DateTimeNow.ToLongTimeString() + " ===> "; break;
+                }
+
+                LogBox.ListBoxAdd(Prefix + Text);
+            }
+
+            public void hr()
+            {
+                LogBox.ListBoxAdd("======================================================================");
+            }
         }
 
-
+        
 
         public void HotKeyShow(KeyEventArgs e)
         {

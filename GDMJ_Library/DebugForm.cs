@@ -1,4 +1,4 @@
-﻿using GDMJ_Library.Class;
+﻿using GDMJ_Library;
 using System;
 using System.Collections;
 using System.Collections.Generic;

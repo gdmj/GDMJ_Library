@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Xml;
 
-namespace GDMJ_Library.Class
+namespace GDMJ_Library
 {
     public class XmlEditor
     {
