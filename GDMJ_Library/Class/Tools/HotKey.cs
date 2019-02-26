@@ -1,13 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using GDMJ_Library.Tools;
 
 namespace GDMJ_Library.Tools
 {
     public class HotKey
     {
-        LogBox L = new LogBox();
-        Exception Ex = new Exception();
 
         char[] w;
         int letter;
@@ -32,7 +33,7 @@ namespace GDMJ_Library.Tools
             {
                 if (word[i] >= '0' && word[i] <= '9')
                 {
-                    Ex.New("The word contains a number");
+                    Exception.New("The word contains a number");
                 }
             }
 
@@ -153,31 +154,11 @@ namespace GDMJ_Library.Tools
                     }
                     return Code;
 
-                default: Ex.New("Не известный язык / Не известные символы. Используйте английский или русский язык"); break;
+                default: Exception.New("Не известный язык / Не известные символы. Используйте английский или русский язык"); break;
             }
             return Code;
         }
-        
+
     }
 
-    public class Exception
-    {
-        public Exception()
-        {
-
-        }
-
-        public void New(string ExText)
-        {
-            throw new System.Exception(ExText);
-        }
-
-        public void New(string ExText, bool _True)
-        {
-            if (_True)
-            {
-                throw new System.Exception(ExText);
-            }
-        }
-    }
 }

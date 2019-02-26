@@ -14,9 +14,6 @@ namespace LibraryChecker
 {
     public partial class Form1 : Form
     {
-        LogBox LogBox = new LogBox();
-        LogBox.Log Log = new LogBox.Log();
-        OneFirstRun OneFirstRun = new OneFirstRun();
         
         // ===HOTKERYS===
         HotKey HotKey = new HotKey("TEST");
@@ -56,10 +53,10 @@ namespace LibraryChecker
             Log.New("Test", 2);
             Log.New("Test", 3);
             Log.hr();
-            Log.New("Test", LogBox.Mode.Works);
-            Log.New("Test", LogBox.Mode.Warning);
-            Log.New("Test", LogBox.Mode.Error);
-            Log.New("Test", LogBox.Mode.FatalError);
+            Log.New("Test", Log.Mode.Works);
+            Log.New("Test", Log.Mode.Warning);
+            Log.New("Test", Log.Mode.Error);
+            Log.New("Test", Log.Mode.FatalError);
             Log.hr();
         }
 
@@ -78,12 +75,12 @@ namespace LibraryChecker
 
             if (Debug.Check(e) == true)
             {
-                LogBox.Show();
+                Log.LogBox.Show();
             }
 
             if (DebugHide.Check(e))
             {
-                LogBox.Hide();
+                Log.LogBox.Hide();
             }
 
             if (Plswork.Check(e))
@@ -99,12 +96,28 @@ namespace LibraryChecker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LogBox.Show();
+            Log.LogBox.Show();
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             Log.New("Pls РАБОТАЙ!!!");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SimpleSave SS = new SimpleSave();
+            SS.NewCell("Test");
+            SS.AddVar("Test", "Nums", "1");
+            SS.AddVar("Test", "Nums", "2");
+            SS.AddVar("DNums", "10");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SimpleSave SS = new SimpleSave();
+            
+            Log.New(SS.ReadVar("Test", "Nums"));
         }
     }
 }

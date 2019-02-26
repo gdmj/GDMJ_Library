@@ -44,8 +44,10 @@
   <ItemGroup>
     <Compile Include="Class\Const.cs" />
     <Compile Include="Class\Debug.cs" />
-    <Compile Include="Class\LogBox.cs" />
-    <Compile Include="Class\Tools.cs" />
+    <Compile Include="Class\Log.cs" />
+    <Compile Include="Class\Tools\Exception.cs" />
+    <Compile Include="Class\Tools\HotKey.cs" />
+    <Compile Include="Class\Tools\SimpleSave.cs" />
     <Compile Include="Class\XmlEditor.cs" />
     <Compile Include="Class\OneFirstRun.cs" />
     <Compile Include="DebugForm.cs">
