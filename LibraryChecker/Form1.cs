@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -108,16 +109,29 @@ namespace LibraryChecker
         {
             SimpleSave SS = new SimpleSave();
             SS.NewCell("Test");
-            SS.AddVar("Test", "Nums", "1");
-            SS.AddVar("Test", "Nums", "2");
+            SS.AddArray("Test", "Nums", "1");
+            SS.AddArray("Test", "Nums", "2");
+            SS.AddVar("Test", "Char", "X");
             SS.AddVar("DNums", "10");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             SimpleSave SS = new SimpleSave();
-            
+            ArrayList AL = new ArrayList();
+
+            SS.ReadArrayVar("Test", "Nums", AL);
+
+
             Log.New(SS.ReadVar("Test", "Nums"));
+            Log.hr();
+            foreach (object _o in AL)
+            {
+                char _c = (char)_o;
+                string _s = Convert.ToString(_c);
+                Log.New(_s);
+            }
+            Log.hr();
         }
     }
 }
