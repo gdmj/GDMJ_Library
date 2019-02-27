@@ -17,6 +17,7 @@ namespace GDMJ_Library
 
         private void ListBoxAdd(string Text)
         {
+            Console.WriteLine("РАБОТАЕТ " + Text);
             DForm.ListBoxLog.Items.Add(Text);
         }
 
@@ -95,7 +96,7 @@ namespace GDMJ_Library
                 this.Show();
                 letter = 0;
             }
-            if (clicks == 9 & clicks > letter)
+            if (clicks == 9 || clicks > letter)
             {
                 letter = 0;
                 clicks = 0;

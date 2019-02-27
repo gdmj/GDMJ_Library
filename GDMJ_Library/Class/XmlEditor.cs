@@ -14,17 +14,18 @@ namespace GDMJ_Library.Class
             this.path = path;
         }
 
+
+
         public void AddNewNode(ArrayList newNodeInfo)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
             XmlElement head = doc.DocumentElement;
             XmlElement newNode = doc.CreateElement(newNodeInfo[0].ToString());
-            for (int i = 1; i < newNodeInfo.Count; i += 2)
+            for (int i = 1; i < newNodeInfo.Count; i+=2)
             {
-                LogBox log = new LogBox();
                 XmlElement childNode = doc.CreateElement(newNodeInfo[i].ToString());
-                XmlText childValue = doc.CreateTextNode(newNodeInfo[i].ToString());
+                XmlText childValue = doc.CreateTextNode(newNodeInfo[i + 1].ToString());
                 childNode.AppendChild(childValue);
                 newNode.AppendChild(childNode);
             }

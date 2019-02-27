@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GDMJ_Library;
+using GDMJ_Library.Class;
 
 namespace LibraryChecker
 {
@@ -30,5 +32,11 @@ namespace LibraryChecker
             
             LogBox.HotKeyShow(e);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
     }
 }
