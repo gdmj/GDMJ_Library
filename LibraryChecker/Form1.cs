@@ -15,7 +15,9 @@ namespace LibraryChecker
 {
     public partial class Form1 : Form
     {
-        
+        SimpleSave SS = new SimpleSave();
+        SimpleSave.NewArray SS_Array = new SimpleSave.NewArray("UsersGDMJ");
+
         // ===HOTKERYS===
         HotKey HotKey = new HotKey("TEST");
         HotKey Debug = new HotKey("DEBUG GDMJ");
@@ -107,31 +109,34 @@ namespace LibraryChecker
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SimpleSave SS = new SimpleSave();
-            SS.NewCell("Test");
-            SS.AddArray("Test", "Nums", "1");
-            SS.AddArray("Test", "Nums", "2");
-            SS.AddVar("Test", "Char", "X");
-            SS.AddVar("DNums", "10");
+            ArrayList UsersList = new ArrayList();
+
+            SS.AddVar("name", "Denius");
+            SS.AddVar("Corp", "Hornet inc.");
+            SS.AddVar("Corp", "GDMJ");
+
+            UsersList.Add("Denius");
+            UsersList.Add("Muller");
+
+            SS_Array.AddVar("Glipko");
+            SS_Array.AddArray(UsersList);
+            SS_Array.AddVar("JonnyTheCat");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            SimpleSave SS = new SimpleSave();
             ArrayList AL = new ArrayList();
 
-            SS.ReadArrayVar("Test", "Nums", AL);
+            Log.New(SS.ReturnVar("name"));
+            Log.New(SS.ReturnVar("Corp"));
 
-
-            Log.New(SS.ReadVar("Test", "Nums"));
-            Log.hr();
+            Log.New(SS_Array.ReturnVar(0));
+            AL.AddRange(SS_Array.ReturnArray());
             foreach (object _o in AL)
             {
-                char _c = (char)_o;
-                string _s = Convert.ToString(_c);
-                Log.New(_s);
+                Log.New(_o.ToString());
             }
-            Log.hr();
+
         }
     }
 }
